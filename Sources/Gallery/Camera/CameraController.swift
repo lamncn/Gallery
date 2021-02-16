@@ -71,6 +71,8 @@ class CameraController: UIViewController {
   func setupLocation() {
     if Config.Camera.recordLocation {
         locationManager = LocationManager.init(self)
+    } else if let enableDateTime = UserDefaults.standard.string(forKey: "enableDateTime"), enableDateTime.count > 0 {
+        locationManager = LocationManager.init(self)
     }
   }
     
